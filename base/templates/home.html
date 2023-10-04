@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% include "header.html" %}
+
+
+<section class="welcome">
+    <div class="mBG"></div>
+    <img src="{% static "img/welcomeT.png" %}" alt="welcome">
+</section>
+
+
+<!-- <section aria-label="slide">
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+      <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img src="img/welcome.png" alt="welcome">
+        </li>
+        <li class="slide">
+          <img src="img/welcomeW.png" alt="welcomeW">
+        </li>
+      </ul>
+    </div>
+</section> -->
+
+<section class ="featured-content" id="featured">
+
+    <div class="featured">
+        <h1>Featured Document</h1>
+    </div>
+
+
+    <div class = "sample-content">
+        <div class="card hidden">
+            <div class="content">
+                <p class="heading">Thesis example
+                </p><p class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+                laboriosam at voluptas minus culpa deserunt delectus sapiente
+                inventore pariatur
+                </p>
+                <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Read More</span>
+                </button>
+            </div>
+        </div>
+        <div class="card hidden">
+            <div class="content">
+                <p class="heading">Thesis example
+                </p><p class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+                laboriosam at voluptas minus culpa deserunt delectus sapiente
+                inventore pariatur
+                </p>
+                </p>
+                <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Read More</span>
+                </button>
+            </div>
+        </div>
+        <div class="card hidden">
+            <div class="content">
+                <p class="heading">Thesis example
+                </p><p class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+                laboriosam at voluptas minus culpa deserunt delectus sapiente
+                inventore pariatur
+                </p>
+                </p>
+                <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Read More</span>
+                </button>
+            </div>
+        </div>
+        <div class="card hidden">
+            <div class="content">
+                <p class="heading">Thesis example
+                </p><p class="para">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
+                laboriosam at voluptas minus culpa deserunt delectus sapiente
+                inventore pariatur
+                </p>
+                </p>
+                <button class="learn-more">
+                <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Read More</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+{% include "footer.html" %}
+
+<script>
+    const buttons = document.querySelectorAll("[data-carousel-button]")
+
+    buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1
+        const slides = button
+        .closest("[data-carousel]")
+        .querySelector("[data-slides]")
+
+        const activeSlide = slides.querySelector("[data-active]")
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+        if (newIndex < 0) newIndex = slides.children.length - 1
+        if (newIndex >= slides.children.length) newIndex = 0
+
+        slides.children[newIndex].dataset.active = true
+        delete activeSlide.dataset.active
+    })
+    })
+</script>
+
+<script>
+    let lastScrollTop = 0; // Variable to store the last scroll position
+
+    window.addEventListener("scroll", () => {
+        const cards = document.querySelectorAll(".card");
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Check the scroll direction (down or up)
+        const scrollDirection = currentScrollTop > lastScrollTop ? "down" : "up";
+
+        cards.forEach((card) => {
+            if (isElementInViewport(card) && card.classList.contains("hidden")) {
+                card.classList.remove("hidden");
+                card.classList.add("animate"); // Add the "animate" class
+            } else if (!isElementInViewport(card) && scrollDirection === "up") {
+                card.classList.add("hidden");
+                card.classList.remove("animate"); // Remove the "animate" class
+            }
+        });
+
+        // Update the last scroll position
+        lastScrollTop = currentScrollTop;
+    });
+
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+</script>
+
+
+
+<script>
+    // Function to smoothly scroll to the target element
+    function scrollToTarget(element) {
+        window.scrollTo({
+            behavior: 'smooth',
+            top: element.offsetTop - 50, // Adjust the offset as needed
+        });
+    }
+
+    // Add an event listener to the "Featured" link
+    const featuredLink = document.getElementById('featured-link');
+    const featuredSection = document.getElementById('featured');
+
+
+    if (featuredLink && featuredSection) {
+        featuredLink.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default anchor link behavior
+            scrollToTarget(featuredSection);
+        });
+    }
+</script>
+{% endblock content %}

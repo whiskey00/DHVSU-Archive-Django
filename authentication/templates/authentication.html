@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static "css/welcome.css" %}">
+
+<div id ="background">
+
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#">
+				<h1>Create Account</h1>
+				<input type="text" placeholder="Username" />
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<input type="password" placeholder="Confirm Password" />
+				
+				<button>Register</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Login</h1>
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<a href="#">Forgot your password?</a>
+				<button>Login</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<a href="{% url 'home' %}">
+						<img src="{% static 'img/logo.png' %}" alt="DHVSU Archives Logo" class="logo">
+					</a>
+					<h1>DHVSU Archives</h1>
+					<h4>"Welcome back! Log in to your account to view thesis/capstone"</h4>
+					<button class="button" id="signIn">
+						LOGIN
+						<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+						  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+						</svg>
+					  </button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<a href="{% url 'home' %}">
+						<img src="{% static 'img/logo.png' %}" alt="DHVSU Archives Logo" class="logo">
+					</a>
+					<h1>DHVSU Archives</h1>
+					<h4>"Preserving Academic Brilliance: Journey Through the Past, Present, and Future of Research with Our Thesis Archive."</h4>
+					<button class="button" id="signUp">
+						REGISTER
+						<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+						  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+						</svg>
+					  </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
+	VANTA.NET({
+	el: "#background",
+	mouseControls: true,
+	touchControls: true,
+	gyroControls: false,
+	minHeight: 200.00,
+	minWidth: 200.00,
+	scale: 1.00,
+	scaleMobile: 1.00,
+	color: 0xffbc2c ,
+	backgroundColor: 0xFFFFFF,
+	maxDistance: 18.00
+	})
+</script>
+
+{% endblock content %}

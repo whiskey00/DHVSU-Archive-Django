@@ -1,0 +1,179 @@
+html, body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header-nav-container {
+    transition: background-color 1s, color 1s, border-top 1s, transform 1s;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-top: 10px solid #600414;
+    height: 105px;
+    display: flex;
+    align-items: center;
+    transform: translateY(0);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+  }
+
+.header-hidden {
+    transform: translateY(-105px);
+    box-shadow: none;
+}
+  
+
+header {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.user-info {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.logo h1 a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.user-info p {
+    margin: 0;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.user-info a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    flex-grow: 2;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+nav li a:hover {
+    background-color: #ffbc2c;
+    color: white;
+    border-radius: 5px;
+    transition: ease-in-out 1s;
+}
+
+
+
+
+
+
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: "\25BC"; /* Unicode character for a downward-pointing triangle */
+    margin-left: 5px;
+    transition: transform 0.2s; /* Add a transition for the dropdown arrow */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    color: #000; /* Set the text color to black */
+    margin-top: 10px; /* Move the dropdown a little lower */
+    opacity: 0; /* Add initial opacity */
+    transform: translateY(-10px); /* Move the dropdown up initially */
+    transition: opacity 0.2s, transform 0.2s, background-color 0.2s; /* Add transitions */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: rgba(0, 0, 0, 0.5); /* Match the style at the top */
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-menu li:hover {
+    background-color: #ffbc2c;
+    color: white;
+}
+
+/* Other navigation styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+nav li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+nav li a:hover {
+    background-color: #ffbc2c;
+    color: white;
+    border-radius: 5px;
+    transition: ease-in-out 1s;
+}
