@@ -177,3 +177,15 @@ nav li a:hover {
     border-radius: 5px;
     transition: ease-in-out 1s;
 }
+
+#welcome-user {
+    margin-right: 5px;
+}
+
+#welcome-user u {
+    color: aqua;
+}
+
+#welcome-user u:hover {
+    cursor: pointer;
+}

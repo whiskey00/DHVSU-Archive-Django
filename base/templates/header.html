@@ -19,7 +19,7 @@
     
     <nav>
         <ul>
-            <li><a href="mainPage.html">Home</a></li>
+            <li><a href="{% url "home" %}">Home</a></li>
             <li><a href="#featured" id="featured-link">Featured</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Department</a>
@@ -27,13 +27,22 @@
                     <li><a href="#">School of Law</a></li>
                     <li><a href="#">Graduate School</a></li>
                     <li><a href="#">College of Arts and Sciences</a></li>
-         
                 </ul>
             </li>
-            <li><a href="mainPage.html">Courses</a></li>
-            <li><a href="mainPage.html">Profile</a></li>
-            <li><a href="mainPage.html">Submit Document</a></li>
-            <li><a href="mainPage.html">About Us</a></li>
+                
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Courses</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Computer Science</a></li>
+                    <li><a href="#">Information Technology</a></li>
+                    <li><a href="#">Information System</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Profile</a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url "library" %}">Submit Document</a></li>
+            {% endif %}
+            <li><a href="#">About Us</a></li>
         </ul>
     </nav>
     
@@ -41,7 +50,12 @@
 
 
     <div class="user-info">
-        <a href="{% url 'authentication:authentication' %}">Login/Register</a>
+        {% if user.is_authenticated %}
+            <span id="welcome-user">Welcome <u>{{ user.username }}</u> | </span>
+            <a href="{% url 'authentication:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'authentication:authentication' %}">Login/Register</a>
+        {% endif %}
     </div>
 
  </div>

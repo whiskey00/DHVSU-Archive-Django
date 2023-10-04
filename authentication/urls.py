@@ -6,4 +6,5 @@ app_name = 'authentication'
 
 urlpatterns = [
     path("", authentication, name="authentication"),
+    path("logout", logout_view, name="logout")
 ]
