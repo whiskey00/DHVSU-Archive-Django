@@ -41,14 +41,17 @@
             <li><a href="#">Profile</a></li>
             {% if user.is_superuser %}
             <li><a href="{% url "library" %}">Submit Document</a></li>
+            
+
             {% endif %}
             <li><a href="#">About Us</a></li>
+
+            {% if user.is_superuser %}
+            <li><a href="{% url "library" %}">Admin</a></li>
+            {% endif %}
         </ul>
     </nav>
     
-
-
-
     <div class="user-info">
         {% if user.is_authenticated %}
             <span id="welcome-user">Welcome <u>{{ user.username }}</u> | </span>
