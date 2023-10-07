@@ -65,44 +65,45 @@
 
  <script>
     let prevScrollPos = window.pageYOffset;
-    const header = document.querySelector('.header-nav-container');
-    const navLinks = document.querySelectorAll('nav li a');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
+const header = document.querySelector('.header-nav-container');
+const navLinks = document.querySelectorAll('nav li a');
+const dropdownMenus = document.querySelectorAll('.dropdown-menu');
 
-    window.onscroll = function() {
-        const currentScrollPos = window.pageYOffset;
+window.onscroll = function() {
+    const currentScrollPos = window.pageYOffset;
 
-        if (currentScrollPos === 0) {
-            // At the top of the page
-            header.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-            header.style.color = '#fff';
-            document.querySelector('.logo img').src = "{% static "img/logoW.png" %}";
-            document.querySelector('.logo h1 a').style.color = '#fff';
-            document.querySelector('.user-info a').style.color = '#fff';
-            navLinks.forEach(link => {
-                link.style.color = '#fff';
-            });
-            header.style.borderTop = '10px solid #600414';
-            header.classList.remove('header-hidden');
-            header.style.height =  '105px';
-        } else if (prevScrollPos > currentScrollPos) {
-            // Scrolling up
-            header.style.backgroundColor = 'white';
-            header.style.color = '#000';
-            document.querySelector('.logo img').src = "{% static "img/logo.png" %}";
-            document.querySelector('.logo h1 a').style.color = '#600414';
-            document.querySelector('.user-info a').style.color = '#000';
-            navLinks.forEach(link => {
-                link.style.color = '#000';
-            });
-            header.style.borderTop = '10px solid #600414';
-            header.classList.remove('header-hidden');
-            header.style.height =  '100px';
-        } else {
-            // Scrolling down
-            header.classList.add('header-hidden');
-        }
+    if (currentScrollPos === 0) {
+        // At the top of the page
+        header.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        header.style.color = '#fff';
+        document.querySelector('.logo img').src = "{% static "img/logoW.png" %}";
+        document.querySelector('.logo h1 a').style.color = '#fff';
+        document.querySelector('.user-info a').style.color = '#fff';
+        navLinks.forEach(link => {
+            link.style.color = '#fff';
+        });
+        header.style.borderTop = '10px solid #600414';
+        header.classList.remove('header-hidden');
+        header.style.height = '105px';
+    } else if (prevScrollPos > currentScrollPos) {
+        // Scrolling up
+        header.style.backgroundColor = 'white';
+        header.style.color = '#000';
+        document.querySelector('.logo img').src = "{% static "img/logo.png" %}";
+        document.querySelector('.logo h1 a').style.color = '#600414';
+        document.querySelector('.user-info a').style.color = '#000';
+        navLinks.forEach(link => {
+            link.style.color = '#000';
+        });
+        header.style.borderTop = '10px solid #600414';
+        header.classList.remove('header-hidden');
+        header.style.height = '100px';
+    } else {
+        // Scrolling down
+        header.classList.add('header-hidden');
+    }
 
+    dropdownMenus.forEach(dropdownMenu => {
         const isDropdownOpen = dropdownMenu.style.display === 'block';
 
         if (isDropdownOpen || currentScrollPos === 0) {
@@ -110,9 +111,11 @@
         } else {
             dropdownMenu.style.backgroundColor = 'white';
         }
+    });
 
-        prevScrollPos = currentScrollPos;
-    };
+    prevScrollPos = currentScrollPos;
+};
+
 </script>
 
 

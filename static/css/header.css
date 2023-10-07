@@ -111,15 +111,15 @@ nav li a:hover {
 
 
 
-/* Dropdown Styles */
+
 .dropdown {
     position: relative;
 }
 
 .dropdown-toggle::after {
-    content: "\25BC"; /* Unicode character for a downward-pointing triangle */
+    content: "\25BC";
     margin-left: 5px;
-    transition: transform 0.2s; /* Add a transition for the dropdown arrow */
+    transition: transform 0.2s; 
 }
 
 .dropdown-menu {
@@ -130,18 +130,18 @@ nav li a:hover {
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    color: #000; /* Set the text color to black */
-    margin-top: 10px; /* Move the dropdown a little lower */
-    opacity: 0; /* Add initial opacity */
-    transform: translateY(-10px); /* Move the dropdown up initially */
-    transition: opacity 0.2s, transform 0.2s, background-color 0.2s; /* Add transitions */
+    color: #000;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s, background-color 0.2s;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
     transform: translateY(0);
-    background-color: rgba(0, 0, 0, 0.5); /* Match the style at the top */
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .dropdown-menu li {
@@ -154,7 +154,7 @@ nav li a:hover {
     color: white;
 }
 
-/* Other navigation styles */
+
 nav ul {
     list-style-type: none;
     padding: 0;
