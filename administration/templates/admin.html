@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Admin</h1>
+<ul>
+    <a href="{% url "profile" %}">
+        <li class="admin-option">
+            <h1>Profile</h1>
+            <p>Edit your Admin Profile</p>
+        </li>
+    </a>
+    
+    <li class="admin-option">
+        <h1>Website Settings</h1>
+        <p>Edit the settings of the website</p>
+    </li>
+    <li class="admin-option">
+        <h1>Documents</h1>
+        <ul>
+            <li>Official Documents</li>
+            <li>On-Hold Documents</li>
+        </ul>
+    </li>
+    <li class="admin-option">
+        <h1>Database</h1>
+        <p>Create/Read/Update/Delete</p>
+    </li>
+</ul>
+{% comment %} Contents of Admin Page:
+- Admin Profile
+- Website Settings
+
+- Documents
+-> Official Documents
+--> Theses
+--> Dissertations
+--> Capstonees
+
+-> On-Hold
+
+
+- Database
+-> Admin List
+-> User List
+-> Department List
+-> ... {% endcomment %}
+
+
+{% endblock content %}

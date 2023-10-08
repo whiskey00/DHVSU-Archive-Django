@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication',
     'base',
     'library',
+    'administration',
 ]
 
 MIDDLEWARE = [
