@@ -1,0 +1,9 @@
+from django.urls import path
+
+from . views import *
+
+urlpatterns = [
+    path("", admin_view_redirect, name="redirect"),
+    path("dashboard/", admin_view, name="adminview"),
+    path("profile/", profile, name="profile"),
+]

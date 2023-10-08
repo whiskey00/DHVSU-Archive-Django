@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GggConfig(AppConfig):
+class AdministrationConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ggg'
+    name = 'administration'
