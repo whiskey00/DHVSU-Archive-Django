@@ -27,6 +27,7 @@ class Document(models.Model):
     abstract = models.TextField()
     group = models.ForeignKey(Group, on_delete=models.CASCADE, default=-1)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=-1)
+    file = models.FileField(upload_to='documents/')
 
     def __str__(self) -> str:
         return self.title
