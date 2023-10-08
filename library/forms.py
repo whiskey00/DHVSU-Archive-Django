@@ -11,6 +11,7 @@ class DocumentForm(forms.ModelForm):
             "school_year",
             "abstract",
             "group",
-            "course"
+            "course",
+            "file"
         ]
     

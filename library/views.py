@@ -7,14 +7,14 @@ def library(request):
     context = {}
 
     if request.method == "POST":
-        form = DocumentForm(request.POST)
+        form = DocumentForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
             return redirect("library")
 
+        print(form.errors)
         return redirect("library")
     
     context["form"] = form.as_p
-    print(form)
     return render(request, "library.html", context)
