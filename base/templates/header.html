@@ -47,7 +47,7 @@
             <li><a href="#">About Us</a></li>
 
             {% if user.is_superuser %}
-            <li><a href="{% url "library" %}">Admin</a></li>
+            <li><a href="{% url "adminview" %}">Admin</a></li>
             {% endif %}
         </ul>
     </nav>
