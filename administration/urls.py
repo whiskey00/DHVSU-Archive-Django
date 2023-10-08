@@ -9,5 +9,5 @@ urlpatterns = [
     path("settings/", settings, name="settings"),
     path("database/", database_view, name="database"),
     path("documents/", documents, name="documents"),
-
+    path("document/<int:id>", document, name="document"),
 ]

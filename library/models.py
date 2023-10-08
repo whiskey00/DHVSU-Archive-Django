@@ -29,6 +29,8 @@ class Document(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=-1)
     file = models.FileField(upload_to='documents/')
 
+    approved = models.BooleanField(default=False)
+
     def __str__(self) -> str:
         return self.title
 

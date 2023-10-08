@@ -8,4 +8,11 @@
     <a href=""><li>On-Hold Documents</li></a>
 </ul>
 
+<ul>
+{% for document in documents %}
+    <li><a href="{% url "document" document.id %}">{{ document.id }} | {{ document.title }}</a></li>
+
+{% endfor %}
+</ul>
+
 {% endblock content %}
