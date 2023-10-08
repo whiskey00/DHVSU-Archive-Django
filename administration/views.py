@@ -9,3 +9,12 @@ def admin_view(request):
 
 def profile(request):
     return render(request, "profile.html", {})
+
+def settings(request):
+    return render(request, "settings.html")
+
+def database_view(request):
+    return render(request, "database.html")
+
+def documents(request):
+    return render(request, "documents.html")
