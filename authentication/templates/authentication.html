@@ -9,6 +9,7 @@
 	<div class="container" id="container">
 		<div class="form-container sign-up-container">
 			<form action="" method="post">
+				<h1>REGISTER</h1>
 				{% csrf_token %}
 				{{ form }}
 				<input type="submit" value="Register" name="register-button" id="register-button">
@@ -20,8 +21,8 @@
 				<h1>Login</h1>
 				<input type="text" placeholder="Username" name="username" />
 				<input type="password" placeholder="Password" name="password" />
-				<a href="#">Forgot your password?</a>
 				<input type="submit" value="Login" id="login-button" name="login-button">
+				<a href="#">Forgot your password?</a>
 			</form>
 		</div>
 		<div class="overlay-container">
