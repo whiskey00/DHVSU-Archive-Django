@@ -1,31 +1,108 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-<h1>Admin</h1>
-<ul>
-    <a href="{% url "profile" %}">
-        <li class="admin-option">
-            <h1>Profile</h1>
-            <p>Edit your Admin Profile</p>
-        </li>
-    </a>
-    
-    <li class="admin-option">
-        <h1>Website Settings</h1>
-        <p>Edit the settings of the website</p>
-    </li>
-    <li class="admin-option">
-        <h1>Documents</h1>
-        <ul>
-            <li>Official Documents</li>
-            <li>On-Hold Documents</li>
-        </ul>
-    </li>
-    <li class="admin-option">
-        <h1>Database</h1>
-        <p>Create/Read/Update/Delete</p>
-    </li>
-</ul>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/admin_dash.css" %}">
+
+<div class="container">
+    <aside>
+        <div class="toggle">
+            <div class="logo">
+                <img src={% static "img/logo.png" %}>
+                <h2 style = "color: #600414;">DHVSU<span style="color: #ffbc2c ;">Archives</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">
+                    close
+                </span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a href="#">
+                <span class="material-icons-sharp">
+                    dashboard
+                </span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    group
+                </span>
+                <h3>Users</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    person_outline
+                </span>
+                <h3>Author List</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    description
+                </span>
+                <h3>Documents</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    apartment
+                </span>
+                <h3>Department</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    settings
+                </span>
+                <h3>Settings</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">
+                    logout
+                </span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+    <!-- End of Sidebar Section -->
+</div>
+
+<div class="content-container"
+
+<script>
+    const sideMenu = document.querySelector('aside');
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+
+    const darkMode = document.querySelector('.dark-mode');
+
+    menuBtn.addEventListener('click', () => {
+        sideMenu.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        sideMenu.style.display = 'none';
+    });
+
+    darkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode-variables');
+        darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+        darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+    })
+
+
+    Orders.forEach(order => {
+        const tr = document.createElement('tr');
+        const trContent = `
+            <td>${order.productName}</td>
+            <td>${order.productNumber}</td>
+            <td>${order.paymentStatus}</td>
+            <td class="${order.status === 'Declined' ? 'danger' : order.status === 'Pending' ? 'warning' : 'primary'}">${order.status}</td>
+            <td class="primary">Details</td>
+        `;
+        tr.innerHTML = trContent;
+        document.querySelector('table tbody').appendChild(tr);
+    });
+</script>
 {% comment %} Contents of Admin Page:
 - Admin Profile
 - Website Settings
