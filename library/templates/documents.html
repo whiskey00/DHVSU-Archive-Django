@@ -10,7 +10,7 @@
 filter
 -Thesis/dissertations/capstones
 -year
--deparment
+-department
 -course
 
 (Rightside/Main Content)
@@ -20,59 +20,101 @@ filter
 
 
 {% include "header.html" %}
+<div id="background">
 
-<h1>Documents</h1>
-
-<div class="container">
-    <div class='sidebar'>
-        <h2>Filter</h2>
-        <form method="GET" action="">
-            <label for="document_type">Document Type</label>
-            <select name="document_type" id="document_type">
-                <option value="">All</option>
-                <option value="">Thesis</option>
-                <option value="">Dissertation</option>
-                <option value="">Capstone</option>
-            </select>
-
-            <label for="year">Year</label>
-            <select name="year" id="year">
-                <option value="">All</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-            </select>
-
-            <label for="deparment">Department</label>
-            <select name="" id="">
-                <option value="Arts and Sciences"></option>
-                <option value="Computing Studies"></option>
-            </select>
-
-            <label for="course">Course</label>
-            <select name="" id="">
-                <option value="">Computer Science</option>
-                <option value="">Information Technology</option>
-            </select>
-
-            <button type = "submit">Filter</button>
-        </form>
-    </div>
-
-
-    <div class="main-content">
-        <div class = "document-list">
-            <ul>
-                {% for document in documents %}
-                    <li><a href="{% url "document" document.id %}">{{ document.id }} | {{ document.title }}</a></li>
+    <div class="container">
+        <div class='sidebar'>
+            <h2><center>Filter</center></h2>
+            <form method="GET" action="">
+                <label>Document Type</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-container" for="all">
+                        <input type="checkbox" id="all" name="document_type" value="All" class="custom-checkbox">
+                        <span class="checkmark"></span>
+                        All
+                    </label>
+                    <label class="checkbox-container" for="thesis">
+                        <input type="checkbox" id="thesis" name="document_type" value="Thesis" class="custom-checkbox">
+                        <span class="checkmark"></span>
+                        Thesis
+                    </label>
+                    <label class="checkbox-container" for="dissertation">
+                        <input type="checkbox" id="dissertation" name="document_type" value="Dissertation" class="custom-checkbox">
+                        <span class="checkmark"></span>
+                        Dissertation
+                    </label>
+                    <label class="checkbox-container" for="capstone">
+                        <input type="checkbox" id="capstone" name="document_type" value="Capstone" class="custom-checkbox">
+                        <span class="checkmark"></span>
+                        Capstone
+                    </label>
+                </div>
                 
-                {% endfor %}
-            </ul>
+
+                <label for="year">Year</label>
+                <select name="year" id="year">
+                    <option value="">All</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+
+                <label for="department">Department</label>
+                <select name="department" id="department">
+                    <option value="">Arts and Sciences</option>
+                    <option value="">Computing Studies</option>
+                </select>
+
+                <label for="course">Course</label>
+                <select name="course" id="course">
+                    <option value="">Computer Science</option>
+                    <option value="">Information Technology</option>
+                </select>
+
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+
+        <div class="main-content">
+            <div class="search-bar">
+                <label for="search">Search</label>
+                <input type="text" name="search" id="search" placeholder="Search documents">
+                <button type="submit">Search</button>
+            </div>
+            <div class="document-list">
+                <div class="document-container">
+                    <div class="document">
+                        <h3>Document Title</h3>
+                        <p><strong>Author:</strong> John Doe</p>
+                        <p><strong>Year:</strong> 2023</p>
+                        <p><strong>Abstract:</strong> This is a sample document abstract. It can contain a brief description of the document's content.</p>
+                        <p><strong>Department:</strong> Computer Science</p>
+                        <p><strong>Courses:</strong> CS101, CS202</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
+	VANTA.NET({
+	el: "#background",
+	mouseControls: true,
+	touchControls: true,
+	gyroControls: false,
+	minHeight: 200.00,
+	minWidth: 200.00,
+	scale: 1.00,
+	scaleMobile: 1.00,
+	color: 0xffbc2c ,
+	backgroundColor: 0xFFFFFF,
+	maxDistance: 18.00
+	})
+</script>
 {% endblock content %}

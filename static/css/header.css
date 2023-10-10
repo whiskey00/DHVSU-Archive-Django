@@ -152,6 +152,8 @@ nav li a:hover {
 .dropdown-menu li:hover {
     background-color: #ffbc2c;
     color: white;
+    border-radius: 5px;
+    transition: ease-in-out 1s;
 }
 
 
