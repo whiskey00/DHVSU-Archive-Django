@@ -5,7 +5,8 @@ from . views import *
 urlpatterns = [
     path("", admin_view_redirect, name="redirect"),
     path("dashboard/", admin_view, name="adminview"),
-    path("profile/", profile, name="profile"),
-    path("settings/", settings, name="settings"),
-    path("database/", database_view, name="database"),
+    path("users/", users, name="users"),
+    # path("profile/", profile, name="profile"),
+    # path("settings/", settings, name="settings"),
+    # path("database/", database_view, name="database"),
 ]
