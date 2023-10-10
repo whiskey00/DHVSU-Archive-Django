@@ -20,7 +20,7 @@ ul{
 	list-style: none;
 }
 .footer{
-	background-color: #24262b;
+	background-color: #47030f;
     padding: 70px 0;
 }
 .footer-col{
@@ -40,7 +40,7 @@ ul{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #600414;
+	background-color: #ffbc2c;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;

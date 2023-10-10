@@ -18,3 +18,21 @@ def library(request):
     
     context["form"] = form.as_p
     return render(request, "library.html", context)
+
+def documents(request):
+    documents = Document.objects.all()
+
+    context = {
+        "documents" : documents,
+    }
+    return render(request, "documents.html", context)
+
+def document(request, id):
+    document = Document.objects.get(id=id)
+    
+    context = {
+        "document" : document,
+    }
+
+    
+    return render(request, "document.html", context)

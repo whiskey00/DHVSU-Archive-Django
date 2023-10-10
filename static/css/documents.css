@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar{
+    width: 25%;
+    padding: 20px;
+    background-color: #600414;
+    border-radius: 10px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2{
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.sidebar label{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.sidebar select{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.sidebar button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}

@@ -17,21 +17,3 @@ def settings(request):
 
 def database_view(request):
     return render(request, "database.html")
-
-def documents(request):
-    documents = Document.objects.all()
-
-    context = {
-        "documents" : documents,
-    }
-    return render(request, "documents.html", context)
-
-def document(request, id):
-    document = Document.objects.get(id=id)
-    
-    context = {
-        "document" : document,
-    }
-
-    
-    return render(request, "document.html", context)

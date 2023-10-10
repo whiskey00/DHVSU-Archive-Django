@@ -3,12 +3,13 @@
 {% block content %}
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" href="{% static "css/admin_dash.css" %}">
-
 <div class="container">
     <aside>
         <div class="toggle">
             <div class="logo">
+                <a href="{% url 'home' %}">
                 <img src={% static "img/logo.png" %}>
+                </a>
                 <h2 style = "color: #600414;">DHVSU<span style="color: #ffbc2c ;">Archives</span></h2>
             </div>
             <div class="close" id="close-btn">
@@ -19,7 +20,7 @@
         </div>
 
         <div class="sidebar">
-            <a href="#">
+            <a href="">
                 <span class="material-icons-sharp">
                     dashboard
                 </span>
@@ -37,7 +38,7 @@
                 </span>
                 <h3>Author List</h3>
             </a>
-            <a href="#">
+            <a href="{% url "documents" %}">
                 <span class="material-icons-sharp">
                     description
                 </span>
@@ -48,6 +49,12 @@
                     apartment
                 </span>
                 <h3>Department</h3>
+            </a>
+            <a href="{% url "database" %}">
+                <span class="material-icons-sharp">
+                    storage
+                </span>
+                <h3>Database</h3>
             </a>
             <a href="#">
                 <span class="material-icons-sharp">
@@ -66,9 +73,6 @@
     <!-- End of Sidebar Section -->
 </div>
 
-<div class="content-container">
-    
-</div>
 
 <script>
     const sideMenu = document.querySelector('aside');

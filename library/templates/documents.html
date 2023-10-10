@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static "css/documents.css" %}">
+
+{% comment %}
+
+(Sidebar) 
+filter
+-Thesis/dissertations/capstones
+-year
+-deparment
+-course
+
+(Rightside/Main Content)
+- Searched documents
+
+{% endcomment %}
+
+
+{% include "header.html" %}
+
+<h1>Documents</h1>
+
+<div class="container">
+    <div class='sidebar'>
+        <h2>Filter</h2>
+        <form method="GET" action="">
+            <label for="document_type">Document Type</label>
+            <select name="document_type" id="document_type">
+                <option value="">All</option>
+                <option value="">Thesis</option>
+                <option value="">Dissertation</option>
+                <option value="">Capstone</option>
+            </select>
+
+            <label for="year">Year</label>
+            <select name="year" id="year">
+                <option value="">All</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+            </select>
+
+            <label for="deparment">Department</label>
+            <select name="" id="">
+                <option value="Arts and Sciences"></option>
+                <option value="Computing Studies"></option>
+            </select>
+
+            <label for="course">Course</label>
+            <select name="" id="">
+                <option value="">Computer Science</option>
+                <option value="">Information Technology</option>
+            </select>
+
+            <button type = "submit">Filter</button>
+        </form>
+    </div>
+
+
+    <div class="main-content">
+        <div class = "document-list">
+            <ul>
+                {% for document in documents %}
+                    <li><a href="{% url "document" document.id %}">{{ document.id }} | {{ document.title }}</a></li>
+                
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

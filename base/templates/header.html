@@ -19,33 +19,35 @@
     
     <nav>
         <ul>
-            <li><a href="{% url "home" %}">Home</a></li>
-            <li><a href="#featured" id="featured-link">Featured</a></li>
+            <li class="dropdown">
+                <a href="{% url "home" %}" class="dropdown-toggle">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#featured" id="featured-link">Featured Documents</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Department</a>
                 <ul class="dropdown-menu">
+                    <li><a href="#">CCS</a></li>
+                    <li><a href="#">CEA</a></li>
                     <li><a href="#">School of Law</a></li>
                     <li><a href="#">Graduate School</a></li>
-                    <li><a href="#">College of Arts and Sciences</a></li>
+                    <li><a href="#">CAS</a></li>
                 </ul>
             </li>
-                
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Courses</a>
+                <a href="{% url "documents" %}" class="dropdown-toggle">Library</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Computer Science</a></li>
-                    <li><a href="#">Information Technology</a></li>
-                    <li><a href="#">Information System</a></li>
+                    <li><a href="#">Theses</a></li>
+                    <li><a href="#">Dissertations</a></li>
+                    <li><a href="#">Capstones</a></li>
                 </ul>
             </li>
             <li><a href="#">Profile</a></li>
             {% if user.is_superuser %}
             <li><a href="{% url "library" %}">Submit Document</a></li>
-            
-
-            {% endif %}
-
-            {% if user.is_superuser %}
             <li><a href="{% url "adminview" %}">Admin</a></li>
             {% endif %}
         </ul>
