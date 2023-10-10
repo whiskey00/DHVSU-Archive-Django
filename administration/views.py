@@ -9,11 +9,5 @@ def admin_view_redirect(request):
 def admin_view(request):
     return render(request, "admin.html", {})
 
-def profile(request):
-    return render(request, "profile.html", {})
-
-def settings(request):
-    return render(request, "settings.html")
-
-def database_view(request):
-    return render(request, "database.html")
+def users(request):
+    return render(request, "users.html")

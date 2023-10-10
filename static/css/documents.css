@@ -1,4 +1,5 @@
 .container{
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -31,6 +32,42 @@
 
 .sidebar button{
     display: block;
-    width: 100%;
+    width: 50%;
     padding: 10px;
+    background-color: #ffbc2c;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    border-radius: 10px;
+}
+
+.sidebar button:hover{
+    background-color: #cf9923;
+}
+
+
+
+.main-content{
+    width: 70%;
+    padding: 20px;
+}
+
+.document-list ul{
+    list-style: none;
+    padding: 0;
+}
+
+.document-list li{
+    margin-bottom: 10px;
+}
+
+.document-list a{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.document-list a:hover{
+    text-decoration: underline;
 }
