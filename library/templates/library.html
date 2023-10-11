@@ -1,11 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-<h1>Library</h1>
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
+{% include "header.html" %}
+<link rel="stylesheet" href="{% static "css/library.css" %}">
 
-    <input type="submit" value="Submit">
-</form>
+<section class="container">
+    <div class="submit-doc">
+        <h1>Submit Document</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+        
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</section>
+
+
 
 {% endblock content %}

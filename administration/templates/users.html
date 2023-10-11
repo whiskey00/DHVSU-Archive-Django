@@ -10,15 +10,18 @@
         <th>Last Login</th>
         <th>Action</th>
     </tr>
+    {% for user in users %}
     <tr>
-        <td>Roi</td>
-        <td>roi.zulan@gmail.com</td>
-        <td>20202-23134</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>2023-10-24</td>
         <td>
             <a href="">Edit</a>
             <a href="">Delete</a>
         </td>
+
     </tr>
+    {% endfor %}
 </table>
 
 <h2>Create User</h2>

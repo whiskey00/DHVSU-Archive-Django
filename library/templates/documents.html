@@ -21,10 +21,23 @@ filter
 
 {% include "header.html" %}
 <div id="background">
-
+    
     <div class="container">
         <div class='sidebar'>
             <h2><center>Filter</center></h2>
+            <div class="search-bar">
+                <div class="search">
+                    <input type="text" class="search__input" name="search" id="search" placeholder="Search documents">
+                    <button class="search__button" type="submit">
+                        <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                            <g>
+                                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
             <form method="GET" action="">
                 <label>Document Type</label>
                 <div class="checkbox-group">
@@ -79,26 +92,29 @@ filter
         </div>
 
         <div class="main-content">
-            <div class="search-bar">
-                <label for="search">Search</label>
-                <input type="text" name="search" id="search" placeholder="Search documents">
-                <button type="submit">Search</button>
-            </div>
             <div class="document-list">
-                <div class="document-container">
-                    <div class="document">
-                        <h3>Document Title</h3>
-                        <p><strong>Author:</strong> John Doe</p>
-                        <p><strong>Year:</strong> 2023</p>
-                        <p><strong>Abstract:</strong> This is a sample document abstract. It can contain a brief description of the document's content.</p>
-                        <p><strong>Department:</strong> Computer Science</p>
-                        <p><strong>Courses:</strong> CS101, CS202</p>
+                {% if documents %}
+                    {% for x in documents %}
+                    <div class="document-container">
+                        <div class="document">
+                            <h3>{{ x.title }}</h3>
+                            <p><strong>Author:</strong> John Doe</p>
+                            <p><strong>Year:</strong>{{ x.school_year }}</p>
+                            <p class="abstract"><strong>Abstract:</strong>
+                                {{ x.abstract|slice:":200" }}{% if x.abstract|length > 200 %}...{% endif %}
+                            </p>
+                            <p><strong>Department:</strong>{{ x.course.abbreviation }}</p>
+                            <p><strong>Courses:</strong> CS101, CS202</p>
+                        </div>
                     </div>
-                </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No documents found.</p>
+                {% endif %}
             </div>
+            
         </div>
     </div>
-
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
